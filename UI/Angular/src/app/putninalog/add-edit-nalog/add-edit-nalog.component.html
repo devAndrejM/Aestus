@@ -1,0 +1,72 @@
+<div class="form-froup row" >
+    <label class="col-sm-2 col-form-label">Razlog Putovanja</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="RazlogPutovanja" placeholder="Unesi Razlog Putovanja">
+    </div>
+
+    <label>
+        Polazak:
+        <input [owlDateTime]="dt1" [(ngModel)]="Polazak" placeholder="Unesi datum i vrijeme polaska">
+        <span class="trigger" [owlDateTimeTrigger]="dt1">
+            <i class="fas fa-calendar-alt"></i>
+        </span>
+        <owl-date-time #dt1></owl-date-time>
+    </label>
+
+    <label>
+        Povratak:
+        <input [owlDateTime]="dt1" [(ngModel)]="Povratak" placeholder="Unesi datum i vrijeme povratka">
+        <span class="trigger" [owlDateTimeTrigger]="dt1">
+            <i class="fas fa-calendar-alt"></i>
+        </span>
+        <owl-date-time #dt1></owl-date-time>
+    </label>
+
+    <label class="col-sm-2 col-form-label">Broj putnika</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="BrojPutnika" placeholder="Unesi broj putnika">
+    </div>
+    
+    
+    <label class="col-sm-2 col-form-label">Putnici</label>
+    <div class="col-sm-10">
+        <select class="form-control" [(ngModel)]="Putnici">
+            <option>--Izaberi--</option>
+            <!-- <option *ngFor="let PutnikId of PutnikList">
+              {{PutnikId.PutnikList}}
+            </option> -->
+        </select>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Odredište</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Odrediste" placeholder="Unesi odredište">
+    </div>
+    
+    
+    <label class="col-sm-2 col-form-label">Prijevoz</label>
+    <div class="col-sm-10">
+        <select class="form-control" [(ngModel)]="Prijevoz">
+            <option>--Izaberi--</option>
+            <option>Javni Prijevoz</option>
+            <option>Osobni Automobil</option>
+            <option>Službeni Automobil</option>            
+        </select>
+    </div>
+    <label class="col-sm-2 col-form-label">Registracija Vozila</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="RegistracijaVozila" placeholder="Unesi Registraciju vozila XX-NNNN-YY">
+    </div>
+    <label class="col-sm-2 col-form-label">Komentar</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Komentar" placeholder="Unesi komentar">
+    </div>
+    <label class="col-sm-2 col-form-label">E-mail za odobrenje</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Email" placeholder="Unesi e-mail">
+    </div>
+</div>
+
+<button (click)="addPutniNalog()" *ngIf="putninalog.PutniNalogId==0" class="btn btn-primary">Dodaj</button>
+
+<button (click)="updatePutniNalog()" *ngIf="putninalog.PutniNalogId!=0" class="btn btn-primary">Spremi</button>
